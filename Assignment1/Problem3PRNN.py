@@ -56,8 +56,8 @@ with open(s1,'r') as csvfile:
          P1=0;P2=0
          b=re.findall(r'\w+',row[0])
          for word in b:
-             P1=P1+getFreq(word,class1,countPos+lenOfClass1)
-             P2=P2+getFreq(word,class2,countNeg+lenOfClass2)
+             P1=P1+getFreq(word,class1,countPos)
+             P2=P2+getFreq(word,class2,countNeg)
          if P1>P2:
              L.append(1)
              countOne=countOne+1
@@ -69,7 +69,12 @@ with open(s1,'r') as csvfile:
 print(countOne)
 print(countZero)
              
+file=open("Assignment1Problem.txt",'w')
 
+for i in range(len(L)):
+    file.write(str(L[i])+'\n')
+    
+    
 
 
 
